@@ -1,21 +1,20 @@
-1-Setting up the Environment:
+### 1-Setting up the Environment:
 
-Bash:
+### Bash:
 
-1-
-I have uploaded crimedata.csv to Github to get it public and wget the raw file , so I can get the data and work on it.
+ 1-I have uploaded crimedata.csv to Github to get it public and wget the raw file , so I can get the data and work on it.
 For bash, I had to load the docker we start with our first container, I have opened the docker to see how many files I have there before doing anything else, the first command I used was this:
-$ docker run -tid --name aNameYouLike registry.gitlab.com/roddhjav/ucd-bigdata/bash
+## $ docker run -tid --name aNameYouLike registry.gitlab.com/roddhjav/ucd-bigdata/bash
 I can change the name anyway I like for example I can remove the ANameYoulike and replace it with any name I want.
 2- In the second part I used docker, and tell the docker to run ubuntu, this is the second Apr I used:
-$ docker ps
+## $ docker ps
 3- for the third part I had to start the container to get it running
-$ docker start aNameYouLike
+## $ docker start aNameYouLike
 4- for the fourth part I had to execute it which will open the bash command line in the container where you can do the rest of the bash scripts.
-docker exec -it aNameYouLike bash
-to open a file I had to use nano and call it any name for a specific file question for example nano “Q1.sh”, to execute it I need to do this: $ chmod u+x Q1.sh 
+## docker exec -it aNameYouLike bash
+to open a file I had to use nano and call it any name for a specific file question for example nano “Q1.sh”, to execute it I need to do this: ## $ chmod u+x Q1.sh 
 
-then $ ./Q1.sh to run the file on the command prompt.
+then ##$ ./Q1.sh to run the file on the command prompt.
 
 
 2- Setting up my environment database management  
