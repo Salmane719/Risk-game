@@ -37,40 +37,70 @@ to run the file on the command prompt.
 ### Hadoop
 
 To get Hadoop working for windows I have went to windows PowerShell to get Hadoop running the first I have done was :
-# “CD docker-hadoop”.
+### “CD docker-hadoop”.
 -I used $ docker ps because this following command will show the list of containers running.
+
 - I used $ docker exec -it namenode bash this will run a Hadoop MapReduce job and connect to the name node.
+- 
 -  I have used wget to get the file into the machine 
+-  
 - after that I followed the lab 5 by doing $ hdfs dfs -mkdir /dataset1
+- 
 - after that $ hdfs dfs -mkdir /input
+- 
  I copied from the local $ hdfs dfs -copyFromLocal ./input/* /input
+ 
 Then to check the local if the files have been uploaded:
+
 $ hdfs dfs -ls /dataset1
+
 $ hdfs dfs -ls /input
+
 After doing all this steps now we can execute the MapReduce by using
+
 Wget --no-check-certificate csserver.ucd.ie/~aventresque/hadoop-mapreduce-examples-2.7.1-sources.jar
+
 To execute the Hadoop job wordcount I use this command:
+
 hadoop jar hadoop-mapreduce-examples-2.7.1-sources.jar org.apache.hadoop.examples.WordCount /input /output
-now we download the wordcount java that will do all the work for us , for all the java questions: wget --no-check-certificate csserver.ucd.ie/~aventresque/COMP30770/2020/WordCount.java
+
+now we download the wordcount java that will do all the work for us , for all the java questions: wget --no-check-certificate 
+csserver.ucd.ie/~aventresque/COMP30770/2020/WordCount.java
+
 I copied many times the wordcount for the rest question by using this command:
+
 cp WordCount.java WordCount2.java and kept doing that until it reached wordCount5.
+
 To edit the file simply use: nano WordCount2.java
-To compile the file, I used this: export HADOOP_CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/lib/tools.jar 
+
+To compile the file, I used this: export HADOOP_CLASSPATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/lib/tools.jar
+
 hadoop com.sun.tools.javac.Main WordCount2.java
+
 to create a jar file: jar cf wc.jar WordCount2*.class
+
 and finally to execute a file: hadoop jar wc.jar WordCount2 /input /output2
+
 
 some of the files when I was running them they were called Wordcount, Wordcount2, Wordcount3, Wordcount4, Wordcount5 , but I changed them when I submitted. To Part3_Q1.java etc…
 
 ## 4- setting up the environment:
+
 ### Spark
 To get the spark, I have used the following commands to run the code
 
 First step was loading the docker to run:
+
 docker run --name spark-master -h spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-master:3.0.0-hadoop3.2-java11
+
 to start the spark:
+
 docker run --name spark-worker-1 --link spark-master:spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-worker:3.0.0-hadoop3.2-java11
+
 to execute it :
+
 docker exec -it spark-master bash
+
 and to get spark working and launching: 
+
 /spark/bin/spark-shell
